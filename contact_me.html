@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -150,7 +151,7 @@
                     </div>
                     <div class="col-md-6 p-5">
                         <h3 class="font-weight-bold">Contact</h3>
-                        <form>
+                        <form id="contact-form">
                             <div class="form-group">
                                 <label for="name">Name *</label>
                                 <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
@@ -180,96 +181,44 @@
     </div>
 </div>
 
-</body>
 <footer class="bg-dark text-white pt-5 pb-4">
-    <div class="container text-center text-md-left">
-        <div class="row text-center text-md-left">
-            <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
-                <h5 class="text-uppercase mb-4 font-weight-bold text-teal">ARSHPAL SINGH</h5>
-                <p>I believe that I can do everything, and if not succeed, never give up.</p>
-            </div>
-            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
-                <h5 class="text-uppercase mb-4 font-weight-bold text-teal">Quick Links</h5>
-                <p>
-                    <a href="index.html">Home</a>
-                </p>
-                <p>
-                    <a href="Product.html">Projects</a>
-                </p>
-                <p>
-                    <a href="#">About Me</a>
-                </p>
-                <p>
-                    <a href="Contact_Me.html">Contact</a>
-                </p>
-            </div>
-            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
-                <h5 class="text-uppercase mb-4 font-weight-bold text-teal">Useful Links</h5>
-                <p>
-                    <a href="#">Your Account</a>
-                </p>
-                <p>
-                    <a href="#">Contact Me</a>
-                </p>
-                <p>
-                    <a href="#">Leave A Suggestion</a>
-                </p>
-                <p>
-                    <a href="#">Help</a>
-                </p>
-            </div>
-            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
-                <h5 class="text-uppercase mb-4 font-weight-bold text-teal">Contact</h5>
-                <p>
-                    <i class="bi bi-house-fill"></i> India.
-                </p>
-                <p>
-                    <i class="bi bi-envelope-fill"></i> arshpal@gmail.com
-                </p>
-                <p>
-                    <i class="bi bi-telephone-fill"></i> +91 8826848801
-                </p>
-            </div>
-        </div>
-
-        <hr class="mb-4">
-
-        <div class="row align-items-center">
-            <div class="col-md-7 col-lg-8">
-                <p>Copyright ©2024 All rights reserved by:
-                    <a href="#" style="text-decoration: none;">
-                        <strong class="text-teal">ARSHPAL SINGH</strong>
-                    </a>
-                </p>
-            </div>
-            <div class="col-md-5 col-lg-4">
-                <div class="text-center text-md-right">
-                    <ul class="list-unstyled list-inline">
-                        <li class="list-inline-item">
-                            <a href="https://www.facebook.com" class="btn-floating btn-sm text-white" style="font-size: 23px;">
-                                <i class="bi bi-facebook"></i>
-                            </a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="https://twitter.com" class="btn-floating btn-sm text-white" style="font-size: 23px;">
-                                <i class="bi bi-twitter"></i>
-                            </a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="https://www.instagram.com" class="btn-floating btn-sm text-white" style="font-size: 23px;">
-                                <i class="bi bi-instagram"></i>
-                            </a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="https://www.linkedin.com" class="btn-floating btn-sm text-white" style="font-size: 23px;">
-                                <i class="bi bi-linkedin"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
+   
 </footer>
 
+<script>
+    const form = document.getElementById('contact-form');
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const company = document.getElementById('company').value;
+        const phone = document.getElementById('phone').value;
+        const message = document.getElementById('message').value;
+
+        if (name === '' || email === '') {
+            alert('Please fill in all required fields');
+            return;
+        }
+
+       
+
+        if (!validateEmail(email)) {
+            alert('Invalid email address');
+            return;
+        }
+
+        alert('Form Submitted');
+
+        
+    });
+
+    function validateEmail(email) {
+        const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        return emailRegex.test(email);
+    }
+</script>
+
+</body>
 </html>
